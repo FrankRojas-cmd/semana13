@@ -82,9 +82,86 @@ namespace clases_Metodos
             Thread.Sleep(800);
             Console.ForegroundColor = ConsoleColor.Green;
         }
+        public void horca( int fallosRestantes)
+        {
+            switch (fallosRestantes)
+            {
+                case 7:
+                    Console.WriteLine("-");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 6:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 5:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 4:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|    O");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 3:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|    O");
+                    Console.WriteLine("|   /|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 2:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|    O");
+                    Console.WriteLine("|   /|\\");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 1:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|    O");
+                    Console.WriteLine("|   /|\\");
+                    Console.WriteLine("|   / ");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+                case 0:
+                    Console.WriteLine("-------");
+                    Console.WriteLine("|    |");
+                    Console.WriteLine("|    O");
+                    Console.WriteLine("|   /|\\");
+                    Console.WriteLine("|   / \\");
+                    Console.WriteLine("|");
+                    Console.WriteLine("----");
+                    break;
+            }
+        }
         public void proceso()
         {
-
         }
     }
 }

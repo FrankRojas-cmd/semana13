@@ -43,6 +43,7 @@ namespace ejecutable
                     case "4":
                         salir = true;
                         Console.WriteLine("Saliendo del juego... ¡Hasta pronto!");
+                        x.animacion_de_salida();
                         break;
                     default:
                         Console.WriteLine("Opción no válida. Presiona una tecla para continuar...");
@@ -51,7 +52,7 @@ namespace ejecutable
 
                 if (!salir)
                 {
-                    Console.WriteLine("\nPresiona una tecla para volver al menú...");
+                    Console.WriteLine("Presiona una tecla para volver al menú...");
                     Console.ReadKey();
                 }
             }
