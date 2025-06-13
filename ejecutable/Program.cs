@@ -59,6 +59,7 @@ namespace ejecutable
 
         static void IniciarJuego()
         {
+            Console.Clear();
             Console.WriteLine("\n[Iniciando el juego...]");
             Class1 x = new Class1();
             x.proceso();
@@ -66,15 +67,20 @@ namespace ejecutable
 
         static void MostrarDescripcion()
         {
-            Console.WriteLine("\n[Descripción del Juego]");
-            Console.WriteLine("Este es un emocionante juego de aventuras donde explorarás mundos desconocidos...");
+            Console.Clear();
+            Console.WriteLine("[Descripción del Juego]");
+            Console.WriteLine("Este clásico juego de adivinanzas pondrá a prueba tu vocabulario, lógica y nervios. ");
+            Console.WriteLine("Deberás adivinar la palabra secreta antes de que se complete el dibujo de la horca.");
+            Console.WriteLine("Cada error te acercará más a la derrota, ¡así que piensa bien tus respuestas!");
+
         }
 
         static void MostrarCreditos()
         {
-            Console.WriteLine("\n[Créditos]");
-            Console.WriteLine("Desarrollado por: Tu Nombre");
-            Console.WriteLine("Música y efectos: Nombre del compositor");
+            Console.Clear();
+            Console.WriteLine("[Créditos]");
+            Console.WriteLine("Desarrollado por: JHANN FRANK ROJAS VALDIVIA ");
+            Console.WriteLine("Y SUMIL");
             Console.WriteLine("Gracias por jugar :)");
         }
     
