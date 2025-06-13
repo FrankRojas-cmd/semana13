@@ -13,7 +13,7 @@ namespace clases_Metodos
         {
 
             Console.WriteLine("CARGANDO...");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(" A H  O  R  C  A  D  O ");
@@ -29,7 +29,7 @@ namespace clases_Metodos
                 else
                 {
                     // Parte de susto: tonos agudos cortos
-                    Console.Beep(1000, 100);
+                    Console.Beep(500, 100);
                     Thread.Sleep(100);
                 }
             }
@@ -72,14 +72,14 @@ namespace clases_Metodos
                 }
             }
             Thread.Sleep(100);
-            Thread.Sleep(500);
+            Thread.Sleep(250);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Gracias por jugar.");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.WriteLine("Esperamos que hayas disfrutado del juego.");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.WriteLine("¡Hasta la próxima!");
-            Thread.Sleep(800);
+            Thread.Sleep(400);
             Console.ForegroundColor = ConsoleColor.Green;
         }
         public void horca( int fallosRestantes)
@@ -162,6 +162,82 @@ namespace clases_Metodos
         }
         public void proceso()
         {
+            // El ordenador escoge una palabra al azar (de entre un conjunto prefijado)
+            string[] palabras = { "superman", "flash", "acuaman",
+            "destino final", "stich", "minecraft" };
+            Random generador = new Random();
+            int numeroAzar = generador.Next(0, palabras.Length);
+            string palabraAdivinar = palabras[numeroAzar];
+
+            // Preparamos una palabra a mostrar (serie de guiones: ---- ----) desde ella
+            string palabraMostrar = "";
+            for (int i = 0; i < palabraAdivinar.Length; i++)
+                if (palabraAdivinar[i] == ' ')
+                    palabraMostrar += " ";
+                else
+                    palabraMostrar += "-";
+
+            // Resto de variables
+            int fallosRestantes = 8;
+            char letraActual;
+            bool terminado = false;
+
+            // Parte repetitiva:
+            do
+            {
+                // Mostramos la palabra oculta (y los fallos restantes)
+                Console.WriteLine("Palabra oculta:  " + palabraMostrar);
+                Console.WriteLine("Fallos restantes: " + fallosRestantes);
+
+                // El usuario elige una letra
+                Console.Write("Introduzca una letra: ");
+                letraActual = char.Parse(Console.ReadLine());
+
+                // Si la letra no es parte de la palabra, el jugador 
+                // pierde un intento (de los ocho iniciales)
+                if (!palabraAdivinar.Contains(letraActual))
+                {
+                    fallosRestantes--;
+                    horca(fallosRestantes);
+                }
+
+                // Si la letra es parte de la palabra, el jugador no 
+                // pierde ningún intento, y la letra se muestra como
+                // parte de la palabra oculta: --a- -a--
+                string siguienteMostrar = "";
+
+                for (int i = 0; i < palabraAdivinar.Length; i++)
+                {
+                    if (letraActual == palabraAdivinar[i])
+                        siguienteMostrar += letraActual;
+                    else
+                        siguienteMostrar += palabraMostrar[i];
+                }
+                palabraMostrar = siguienteMostrar;
+
+                // Comprobamos si ha terminado: si el usuario se queda sin intentos
+                // o si adivina toda la palabra.
+                if (!palabraMostrar.Contains("-"))
+                {
+                    Console.WriteLine("Felicidades, acertaste!  ({0})",
+                        palabraAdivinar);
+
+                    terminado = true;
+                }
+                else if (fallosRestantes == 0)
+                {
+                    Console.WriteLine("Lo siento. Era " + palabraAdivinar);
+                    terminado = true;
+                }
+
+                Console.WriteLine();
+
+            }
+            while (!terminado);
+        }
+        public void animacionganador()
+        {
+         
         }
     }
 }
