@@ -17,28 +17,34 @@ namespace clases_Metodos
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(" A H  O  R  C  A  D  O ");
-            for (int i = 0; i < 8; i++)
-            {
-                if (i < 5)
-                {
-                    // Parte de suspenso: tonos graves descendentes
-                    int frecuencia = 600 - (i * 60); // 600, 540, 480, 420, 360
-                    Console.Beep(frecuencia, 600);
-                    Thread.Sleep(200);
-                }
-                else
-                {
-                    // Parte de susto: tonos agudos cortos
-                    Console.Beep(500, 100);
-                    Thread.Sleep(100);
-                }
-            }
-            Thread.Sleep(100);
-            Thread.Sleep(500);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Preparando la soga...");
             Thread.Sleep(1000);
             Console.WriteLine("Buscando palabras secretas...");
+            Console.Beep(440, 500); // La
+            Console.Beep(440, 500); // La
+            Console.Beep(440, 500); // La
+
+            Console.Beep(349, 350); // Fa
+            Console.Beep(523, 150); // Do
+            Console.Beep(440, 500); // La
+            Console.Beep(349, 350); // Fa
+            Console.Beep(523, 150); // Do
+            Console.Beep(440, 1000); // La larga
+
+            // Segunda frase
+            Console.Beep(659, 500); // Mi
+            Console.Beep(659, 500); // Mi
+            Console.Beep(659, 500); // Mi
+
+            Console.Beep(698, 350); // Fa#
+            Console.Beep(523, 150); // Do
+            Console.Beep(415, 500); // Sol#
+            Console.Beep(349, 350); // Fa
+            Console.Beep(523, 150); // Do
+            Console.Beep(440, 1000); // La
+
+            
             Thread.Sleep(1000);
             Console.WriteLine("¡Todo listo!");
             Thread.Sleep(800);
@@ -82,8 +88,9 @@ namespace clases_Metodos
             Thread.Sleep(400);
             Console.ForegroundColor = ConsoleColor.Green;
         }
-        public void horca( int fallosRestantes)
+        public void horca(int fallosRestantes)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             switch (fallosRestantes)
             {
                 case 7:
@@ -157,14 +164,17 @@ namespace clases_Metodos
                     Console.WriteLine("|   / \\");
                     Console.WriteLine("|");
                     Console.WriteLine("----");
+                    Console.ResetColor();
                     break;
+                    
             }
         }
         public void proceso()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             // El ordenador escoge una palabra al azar (de entre un conjunto prefijado)
             string[] palabras = { "superman", "flash", "acuaman",
-            "destino final", "stich", "minecraft" };
+            "matrix", "stich", "minecraft" };
             Random generador = new Random();
             int numeroAzar = generador.Next(0, palabras.Length);
             string palabraAdivinar = palabras[numeroAzar];
@@ -221,23 +231,48 @@ namespace clases_Metodos
                 {
                     Console.WriteLine("Felicidades, acertaste!  ({0})",
                         palabraAdivinar);
-
+                    animacionganador();
                     terminado = true;
                 }
                 else if (fallosRestantes == 0)
                 {
                     Console.WriteLine("Lo siento. Era " + palabraAdivinar);
+                    animacionperdedor();
                     terminado = true;
                 }
 
                 Console.WriteLine();
+                Console.ResetColor();
 
             }
             while (!terminado);
+
         }
         public void animacionganador()
         {
-         
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("G A N A S T E");
+            Console.WriteLine("¡¡¡¡AHORA PUEDES TENER NOVIA!!!!!!");
+
+
+            Console.Beep(1000, 200);
+            Thread.Sleep(100);
+            Console.Beep(1200, 200);
+            Thread.Sleep(100);
+            Console.Beep(1400, 300);
+        }
+        public void animacionperdedor()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("P E R D I S T E");
+            Console.WriteLine("¡¡¡¡AHORA NO PUEDES TENER NOVIA!!!!!!");
+            Console.Beep(500, 200);
+            Thread.Sleep(100);
+            Console.Beep(400, 200);
+            Thread.Sleep(100);
+            Console.Beep(300, 300);
         }
     }
 }

@@ -20,12 +20,21 @@ namespace ejecutable
             while (!salir)
             {
                 Console.Clear();
-                Console.WriteLine(" MENÚ PRINCIPAL ");
-                Console.WriteLine("1. Iniciar Juego");
-                Console.WriteLine("2. Descripción del Juego");
-                Console.WriteLine("3. Créditos");
-                Console.WriteLine("4. Salir");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine(" M E N U  P R I N C I P A L  ");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("1. INICIAR JUEGO");
+                Console.WriteLine("");
+                Console.WriteLine("2. DESCRIPCION DE JUEGO");
+                Console.WriteLine("");
+                Console.WriteLine("3. CREDITOS");
+                Console.WriteLine("");
+                Console.WriteLine("4. SALIR");
+                Console.WriteLine("");
                 Console.Write("Selecciona una opción (1-4): ");
+                Console.WriteLine("");
+                Console.ResetColor();
 
                 string opcion = Console.ReadLine();
 
@@ -79,6 +88,7 @@ namespace ejecutable
         static void MostrarCreditos()
         {
             Console.Clear();
+
             Console.WriteLine("[Créditos]");
             Console.WriteLine("Desarrollado por: JHANN FRANK ROJAS VALDIVIA ");
             Console.WriteLine("Y SUMIL");
