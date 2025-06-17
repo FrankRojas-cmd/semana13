@@ -174,7 +174,7 @@ namespace clases_Metodos
             Console.ForegroundColor = ConsoleColor.Yellow;
             // El ordenador escoge una palabra al azar (de entre un conjunto prefijado)
             string[] palabras = { "superman", "flash", "acuaman",
-            "matrix", "stich", "minecraft" };
+            "matrix", "stich", "minecraft", "destino final" };
             Random generador = new Random();
             int numeroAzar = generador.Next(0, palabras.Length);
             string palabraAdivinar = palabras[numeroAzar];
